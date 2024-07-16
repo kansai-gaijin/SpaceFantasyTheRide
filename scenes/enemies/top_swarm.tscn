@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciprpio2ngqxg"]
+
+[ext_resource type="Script" path="res://scenes/enemies/top_swarm.gd" id="1_hcv30"]
+[ext_resource type="PackedScene" uid="uid://cy71cayjy6g7m" path="res://scenes/enemies/debug_ship.tscn" id="2_4i0kr"]
+
+[sub_resource type="Curve2D" id="Curve2D_0vwjr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 470, 2, 48.7648, 8.98984, -48.7648, -8.98984, 170, 53, 41.0853, 2.24746, -41.0853, -2.24746, 38, 18, 9.59937, -22.8492, -9.59937, 22.8492, -129, 83)
+}
+point_count = 4
+
+[node name="TopSwarm" type="Node2D"]
+script = ExtResource("1_hcv30")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_0vwjr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(470, 2)
+rotates = false
+loop = false
+
+[node name="DebugShip" parent="Path2D/PathFollow2D" instance=ExtResource("2_4i0kr")]
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
+position = Vector2(431.005, 11.0022)
+progress = 40.0386
+rotates = false
+loop = false
+
+[node name="DebugShip" parent="Path2D/PathFollow2D2" instance=ExtResource("2_4i0kr")]
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="Path2D"]
+position = Vector2(394.69, 19.0459)
+progress = 77.2195
+rotates = false
+loop = false
+
+[node name="DebugShip" parent="Path2D/PathFollow2D3" instance=ExtResource("2_4i0kr")]
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="Path2D"]
+position = Vector2(349.924, 28.5064)
+progress = 122.973
+rotates = false
+loop = false
+
+[node name="DebugShip" parent="Path2D/PathFollow2D4" instance=ExtResource("2_4i0kr")]

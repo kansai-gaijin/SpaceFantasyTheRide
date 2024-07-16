@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpibm0w0a1ru0"]
+
+[ext_resource type="Script" path="res://scenes/common/enemy.gd" id="1_lqw8d"]
+[ext_resource type="PackedScene" uid="uid://dajiiy1m8xmvu" path="res://scenes/common/health.tscn" id="2_n3wal"]
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 4
+collision_mask = 17
+script = ExtResource("1_lqw8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+region_enabled = true
+region_rect = Rect2(16, 16, 32, 32)
+
+[node name="Health" parent="." instance=ExtResource("2_n3wal")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="death" from="Health" to="." method="_on_health_death"]

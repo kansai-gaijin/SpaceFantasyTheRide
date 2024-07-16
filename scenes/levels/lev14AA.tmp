@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d06tgxnjn3j0g"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_cdrmk"]
+[ext_resource type="PackedScene" uid="uid://cea41grli5p6s" path="res://scenes/player/player.tscn" id="1_r8d12"]
+[ext_resource type="Texture2D" uid="uid://cn11gc54jfcvl" path="res://assets/textures/temp/Moon Background/Surface_Layer4.png" id="2_fec08"]
+[ext_resource type="Script" path="res://scenes/levels/background.gd" id="3_578ke"]
+[ext_resource type="PackedScene" uid="uid://bgh5rngfltk17" path="res://scenes/enemies/spawn_trigger.tscn" id="5_7br7k"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_cdrmk")
+
+[node name="ScrollingObjects" type="ParallaxBackground" parent="."]
+script = ExtResource("3_578ke")
+scrollSpeed = -100
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="ScrollingObjects"]
+motion_mirroring = Vector2(256, 0)
+
+[node name="BackgroundTexture" type="TextureRect" parent="ScrollingObjects/BackgroundLayer"]
+offset_right = 256.0
+offset_bottom = 224.0
+texture = ExtResource("2_fec08")
+stretch_mode = 1
+
+[node name="Decorations" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="Triggers" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="SpawnTrigger" parent="ScrollingObjects/Triggers" instance=ExtResource("5_7br7k")]
+position = Vector2(246, -6)
+
+[node name="Tilemaps" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_r8d12")]
+position = Vector2(17, 98)

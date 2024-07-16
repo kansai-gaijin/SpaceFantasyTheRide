@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bub21mo8bmxxd"]
+
+[ext_resource type="Script" path="res://scenes/common/projectile.gd" id="1_ojk8p"]
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_ojk8p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="ScreenNotif" type="VisibleOnScreenNotifier2D" parent="."]
