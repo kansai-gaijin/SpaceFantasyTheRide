@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://8c2r8bhrfuae"]
-
-[ext_resource type="Script" path="res://scenes/player/guns/gun.gd" id="1_doqdj"]
-[ext_resource type="PackedScene" uid="uid://oj5jaye61i5g" path="res://scenes/player/projectiles/missile.tscn" id="2_5w3m0"]
-
-[node name="Gun" type="Node2D" groups=["guns"]]
-script = ExtResource("1_doqdj")
-projectile = ExtResource("2_5w3m0")

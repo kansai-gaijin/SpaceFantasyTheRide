@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dge1p6dg5ycks"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_olgqq"]
+[ext_resource type="PackedScene" uid="uid://dpx8g3kuh0sn" path="res://scenes/scrolling_objects.tscn" id="2_kckmj"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_olgqq")
+
+[node name="ScrollingObjects" parent="." instance=ExtResource("2_kckmj")]
+
+[node name="Background" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="Triggers" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="MidGround" type="ParallaxLayer" parent="ScrollingObjects"]
+
+[node name="GameObjects" type="Node" parent="."]
+
+[node name="Enemies" type="Node2D" parent="GameObjects"]
+
+[node name="Projectiles" type="Node2D" parent="GameObjects"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+process_callback = 0
